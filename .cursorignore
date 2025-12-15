@@ -1,0 +1,43 @@
+# =================================
+# Cursor Ignore - Fichiers exclus de l'IA
+# =================================
+
+# Variables d'environnement (SECRETS!)
+.env
+.env.*
+*.env
+!.env.example
+!env.example
+
+# Clés et certificats
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+secrets/
+.secrets/
+credentials/
+*.credentials
+service-account*.json
+
+# Dépendances (trop volumineux)
+node_modules/
+.pnpm-store/
+
+# Build
+dist/
+build/
+.next/
+.turbo/
+
+# Cache
+.cache/
+coverage/
+
+# Données locales
+*.sqlite
+*.db
+mongo-data/
+redis-data/
+

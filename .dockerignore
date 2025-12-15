@@ -1,0 +1,65 @@
+# =================================
+# Docker Ignore - Exclus des builds Docker
+# =================================
+
+# Git
+.git/
+.gitignore
+
+# Dépendances (reconstruites dans Docker)
+node_modules/
+.pnpm-store/
+
+# Variables d'environnement (passées via Docker)
+.env
+.env.*
+*.env
+
+# Build local
+dist/
+build/
+.next/
+out/
+.turbo/
+
+# Tests
+coverage/
+*.test.ts
+*.spec.ts
+__tests__/
+tests/
+
+# Documentation
+*.md
+!README.md
+docs/
+
+# IDE
+.idea/
+.vscode/
+.cursor/
+.cursorignore
+
+# Cache
+.cache/
+*.cache
+.eslintcache
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporaire
+tmp/
+temp/
+*.tmp
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.docker/
+
