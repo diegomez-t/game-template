@@ -52,8 +52,14 @@ cd mon-jeu
 pnpm install
 
 # Configurer les variables d'environnement
-cp apps/api/.env.example apps/api/.env
-# Éditer apps/api/.env avec vos valeurs
+cp env.example .env
+cp apps/api/env.example apps/api/.env
+cp apps/web/env.example apps/web/.env.local
+
+# Éditer les fichiers .env avec vos valeurs
+
+# Lancer MongoDB (optionnel si vous utilisez Atlas)
+docker-compose up -d mongodb
 
 # Démarrer en développement
 pnpm dev
