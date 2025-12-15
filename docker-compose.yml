@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  # MongoDB
+  mongodb:
+    image: mongo:7
+    container_name: game-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: game-template
+
+  # Redis (optionnel - pour Socket.IO adapter en prod)
+  redis:
+    image: redis:7-alpine
+    container_name: game-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # API (optionnel - pour déploiement local)
+  # api:
+  #   build:
+  #     context: .
+  #     dockerfile: apps/api/Dockerfile
+  #   container_name: game-api
+  #   restart: unless-stopped
+  #   ports:
+  #     - "3001:3001"
+  #   environment:
+  #     - NODE_ENV=production
+  #     - PORT=3001
+  #     - MONGODB_URI=mongodb://mongodb:27017/game-template
+  #     - REDIS_URL=redis://redis:6379
+  #   depends_on:
+  #     - mongodb
+  #     - redis
+
+volumes:
+  mongodb_data:
+  redis_data:
+
